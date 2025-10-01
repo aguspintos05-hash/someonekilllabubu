@@ -82,3 +82,50 @@ button:active {
     font-size: 0.8em;
     color: #606060; /* Texto del footer en gris oscuro, casi invisible */
 }
+/* --- ESTILO PARA EL BOTÓN DE INSTAGRAM (DORADO/DIAMANTE) --- */
+
+.instagram-button {
+    /* Mismos parámetros de fuente y espaciado que el botón principal */
+    display: inline-block; 
+    text-decoration: none; 
+    font-size: 16px;
+    padding: 12px 22px; 
+    margin: 15px 0 30px 0; 
+    cursor: pointer;
+    font-weight: bold;
+    
+    /* Colores y diseño: EL ORO BRILLANTE */
+    background-color: #FFD700; /* Oro Puro */
+    color: #000000; /* Texto NEGRO para máximo contraste con el oro */
+    
+    /* Sombra de texto de "lujo" */
+    text-shadow: 1px 1px 1px #FFFFFF; 
+    
+    /* Borde 3D CLÁSICO de botón de los 90, pero en tono dorado */
+    border-top: 3px solid #FFFFCC;      /* Luz (Casi blanco) */
+    border-left: 3px solid #FFFFCC;     
+    border-bottom: 3px solid #B8860B;   /* Sombra (Marrón Oscuro/Bronce) */
+    border-right: 3px solid #B8860B;    
+    
+    /* El toque final: Un GLOW que simula el diamante/brillo */
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500; 
+
+    transition: all 0.05s ease-out;
+}
+
+.instagram-button:hover {
+    background-color: #FFA500; /* Naranja más fuerte al pasar el ratón */
+    box-shadow: 0 0 15px #FFD700, 0 0 30px #FF4500; /* El brillo se intensifica */
+}
+
+/* Aplicamos el efecto hundido al presionar el botón */
+button:active, .instagram-button:active {
+    background-color: #CC9900; 
+    /* Bordes invertidos */
+    border-top: 3px solid #B8860B;
+    border-left: 3px solid #B8860B;
+    border-bottom: 3px solid #FFFFCC;
+    border-right: 3px solid #FFFFCC;
+    transform: translateY(1px) translateX(1px); 
+    box-shadow: none; /* El brillo desaparece al presionarlo */
+}
