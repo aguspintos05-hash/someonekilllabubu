@@ -1,65 +1,13 @@
 // Lista de nombres comunes para la masacre de Labubus
 const nombresLabubu = [
-    "Jack",
-    "Agustín",
-    "Brian",
-    "Sofía",
-    "Juan",
-    "María",
-    "Lucas",
-    "Martina",
-    "David",
-    "Laura",
-    "Carlos",
-    "Ana",
-    "Pedro",
-    "Elena",
-    "Andrés",
-    "Valeria",
-    "Jorge",
-    "Camila",
-    "Miguel",
-    "Isabel",
-    "Javier",
-    "Nicole",
-    "Pablo",
-    "Julia",
-    "Ricardo",
-    "Gabriel",
-    "Diego",
-    "Victoria",
-    "Fernando",
-    "Renata",
-    "Guillermo",
-    "Paula",
-    "Santiago",
-    "Emma",
-    "Manuel",
-    "Zoe",
-    "Héctor",
-    "Sara",
-    "Roberto",
-    "Benjamín",
-    "Chris",
-    "Alice",
-    "Sam",
-    "Michelle",
-    "Kevin",
-    "Esther",
-    "Oliver",
-    "Fiona",
-    "Liam",
-    "Chloe",
-    "Ethan",
-    "Grace",
-    "Noah",
-    "Mia",
-    "Alexander",
-    "Emily",
-    "Daniel",
-    "Harper",
-    "Joseph",
-    "Avery"
+    "Jack", "Agustín", "Brian", "Sofía", "Juan", "María", "Lucas", "Martina", 
+    "David", "Laura", "Carlos", "Ana", "Pedro", "Elena", "Andrés", "Valeria", 
+    "Jorge", "Camila", "Miguel", "Isabel", "Javier", "Nicole", "Pablo", "Julia", 
+    "Ricardo", "Gabriel", "Diego", "Victoria", "Fernando", "Renata", "Guillermo", 
+    "Paula", "Santiago", "Emma", "Manuel", "Zoe", "Héctor", "Sara", "Roberto", 
+    "Benjamín", "Chris", "Alice", "Sam", "Michelle", "Kevin", "Esther", "Oliver", 
+    "Fiona", "Liam", "Chloe", "Ethan", "Grace", "Noah", "Mia", "Alexander", 
+    "Emily", "Daniel", "Harper", "Joseph", "Avery"
 ];
 
 // Lista de Lugares al azar
@@ -80,16 +28,19 @@ const lugaresAzar = [
 ];
 
 let clicks = 0;
-// Obtener la referencia al elemento de audio (asegúrate que 'index.html' tenga el ID 'botonAudio')
+// Obtener la referencia al elemento de audio del botón
 const audioElement = document.getElementById('botonAudio');
 
 // Esta función se ejecuta cada vez que alguien hace clic en el botón
-// NOTA: Esta función DEBE llamarse 'matarLabubu' porque así está en tu HTML.
 function matarLabubu() {
-    // 1. Reproducir el sonido
+    // 1. Reproducir el sonido de disparo
     // Reinicia el audio para que pueda sonar aunque se haga clic rápido
     audioElement.currentTime = 0; 
-    audioElement.play(); 
+    
+    // El .play() debería funcionar sin problemas porque el clic del usuario lo inicia.
+    audioElement.play().catch(error => {
+        // En caso de error (raro en este caso), no hacemos nada
+    }); 
     
     // 2. Aumentar el contador de clics
     clicks++;
