@@ -28,18 +28,18 @@ const lugaresAzar = [
 ];
 
 let clicks = 0;
-// Obtener la referencia al elemento de audio del botón
+// Obtener la referencia al elemento de audio del botón de disparo
 const audioElement = document.getElementById('botonAudio');
 
-// Esta función se ejecuta cada vez que alguien hace clic en el botón
+// FUNCIÓN PRINCIPAL: MATAR UN LABUBU
 function matarLabubu() {
     // 1. Reproducir el sonido de disparo
     // Reinicia el audio para que pueda sonar aunque se haga clic rápido
     audioElement.currentTime = 0; 
     
-    // El .play() debería funcionar sin problemas porque el clic del usuario lo inicia.
+    // El .play() debería funcionar porque el clic del usuario lo inicia.
     audioElement.play().catch(error => {
-        // En caso de error (raro en este caso), no hacemos nada
+        console.error("No se pudo iniciar el sonido de disparo:", error);
     }); 
     
     // 2. Aumentar el contador de clics
@@ -53,9 +53,27 @@ function matarLabubu() {
     const indiceLugar = Math.floor(Math.random() * lugaresAzar.length);
     const lugarMuerte = lugaresAzar[indiceLugar];
 
-    // 4. Crear el mensaje completo usando el nombre y lugar al azar
+    // 4. Crear el mensaje y mostrar el cartelito emergente
     const mensaje = `Enviamos un sicario a matar a ${nombreVictima} (en ${lugarMuerte}). ¡Gracias por confiar en nosotros!`;
-
-    // 5. Mostrar el cartelito emergente (alert)
     alert(mensaje);
+}
+
+
+// --- FUNCIÓN PARA INICIAR LA MÚSICA DE FONDO ---
+// Esta función se ejecuta al hacer clic en el botón "ESCUCHÁ ESTO!"
+function iniciarMusica() {
+    const musica = document.getElementById('musicaFondo');
+    const boton = document.getElementById('toggleMusic');
+    
+    // Intenta reproducir el audio. Esto solo es posible si el usuario ha hecho clic.
+    musica.play().then(() => {
+        // Si la reproducción fue exitosa, eliminamos el botón para que no estorbe.
+        if (boton) {
+            // El botón se elimina de la interfaz
+            boton.remove(); 
+        }
+    }).catch(error => {
+        // Si hay un error, lo mostramos en la consola, pero la música no sonará.
+        console.error("Error al iniciar la música de fondo:", error);
+    });
 }
